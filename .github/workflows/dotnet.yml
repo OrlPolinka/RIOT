@@ -22,12 +22,12 @@ jobs:
     
     # 3. Восстанавливаем зависимости
     - name: Restore dependencies
-      run: dotnet restore lab_1/lab_1.csproj
+      run: dotnet restore lab_1/lab_1/lab_1.csproj
     
     # 4. Собираем проект
     - name: Build
-      run: dotnet build lab_1/lab_1.csproj --no-restore --configuration Release
+      run: dotnet build lab_1/lab_1/lab_1.csproj --no-restore --configuration Release
     
     # 5. Запускаем тесты (если они есть)
     - name: Test
-      run: dotnet test lab_1/lab_1.csproj --no-build --verbosity normal
+      run: dotnet test lab_1/lab_1/lab_1.csproj --no-build --verbosity normal
