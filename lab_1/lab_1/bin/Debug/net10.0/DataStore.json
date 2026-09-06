@@ -1,0 +1,174 @@
+{
+  "Customers": [
+    {
+      "Id": 1,
+      "Surname": "\u0421\u0442\u0430\u043B\u044C\u043C\u0430\u0447\u0435\u043D\u043E\u043A",
+      "Name": "\u041F\u043E\u043B\u0438\u043D\u0430",
+      "Patronymic": "\u041C\u0438\u0445\u0430\u0439\u043B\u043E\u0432\u043D\u0430",
+      "Email": "poli@gmail.ru",
+      "PhoneNumber": "\u002B375291234567",
+      "DriverLicenseNumber": "AB1234567",
+      "DateOfBirth": "2003-05-15T00:00:00",
+      "RegistrationDate": "2025-08-02T10:30:00"
+    },
+    {
+      "Id": 2,
+      "Surname": "\u0428\u043A\u0438\u043D\u0434\u0435\u0440",
+      "Name": "\u0412\u0435\u0440\u043E\u043D\u0438\u043A\u0430",
+      "Patronymic": "\u0412\u0430\u043B\u0435\u0440\u044C\u0435\u0432\u043D\u0430",
+      "Email": "kind@gmail.ru",
+      "PhoneNumber": "\u002B375297654321",
+      "DriverLicenseNumber": "CD7654321",
+      "DateOfBirth": "1999-11-03T00:00:00",
+      "RegistrationDate": "2022-03-12T15:20:00"
+    },
+    {
+      "Id": 3,
+      "Surname": "\u0410\u0441\u0442\u0443\u043A\u0435\u0432\u0438\u0447",
+      "Name": "\u0414\u0430\u043D\u0438\u0438\u043B",
+      "Patronymic": "\u0410\u043B\u0435\u043A\u0441\u0435\u0435\u0432\u0438\u0447",
+      "Email": "dany@mail.ru",
+      "PhoneNumber": "\u002B375295556677",
+      "DriverLicenseNumber": "EF9876543",
+      "DateOfBirth": "2006-04-26T00:00:00",
+      "RegistrationDate": "2026-03-10T09:15:00"
+    }
+  ],
+  "Cars": [
+    {
+      "Id": 1,
+      "Brand": "Toyota",
+      "Model": "Camry",
+      "Year": 2020,
+      "LicensePlate": "\u0410123\u0412\u0421",
+      "PricePerDay": 45.00,
+      "IsAvailable": true,
+      "Color": "\u0421\u0435\u0440\u0435\u0431\u0440\u0438\u0441\u0442\u044B\u0439"
+    },
+    {
+      "Id": 2,
+      "Brand": "BMW",
+      "Model": "X5",
+      "Year": 2021,
+      "LicensePlate": "\u0412456\u0425\u041A",
+      "PricePerDay": 75.00,
+      "IsAvailable": true,
+      "Color": "\u0427\u0435\u0440\u043D\u044B\u0439"
+    },
+    {
+      "Id": 3,
+      "Brand": "Kia",
+      "Model": "Rio",
+      "Year": 2022,
+      "LicensePlate": "\u0421789\u041E\u0420",
+      "PricePerDay": 30.00,
+      "IsAvailable": true,
+      "Color": "\u0411\u0435\u043B\u044B\u0439"
+    },
+    {
+      "Id": 4,
+      "Brand": "Hyundai",
+      "Model": "Solaris",
+      "Year": 2021,
+      "LicensePlate": "\u0415321\u041A\u041C",
+      "PricePerDay": 35.00,
+      "IsAvailable": false,
+      "Color": "\u041A\u0440\u0430\u0441\u043D\u044B\u0439"
+    },
+    {
+      "Id": 5,
+      "Brand": "Mercedes",
+      "Model": "E-Class",
+      "Year": 2022,
+      "LicensePlate": "\u041A654\u041D\u0415",
+      "PricePerDay": 90.00,
+      "IsAvailable": true,
+      "Color": "\u0421\u0438\u043D\u0438\u0439"
+    }
+  ],
+  "Locations": [
+    {
+      "Id": 1,
+      "City": "\u041C\u0438\u043D\u0441\u043A",
+      "Address": "\u0443\u043B. \u041D\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438, 15",
+      "Phone": "\u002B375291111111",
+      "WorkingHours": "09:00-21:00"
+    },
+    {
+      "Id": 2,
+      "City": "\u041C\u0438\u043D\u0441\u043A",
+      "Address": "\u0443\u043B. \u041F\u0440\u0438\u0442\u044B\u0446\u043A\u043E\u0433\u043E, 45",
+      "Phone": "\u002B375292222222",
+      "WorkingHours": "08:00-20:00"
+    },
+    {
+      "Id": 3,
+      "City": "\u0413\u043E\u043C\u0435\u043B\u044C",
+      "Address": "\u0443\u043B. \u0421\u043E\u0432\u0435\u0442\u0441\u043A\u0430\u044F, 10",
+      "Phone": "\u002B375293333333",
+      "WorkingHours": "09:00-19:00"
+    }
+  ],
+  "Rentals": [
+    {
+      "Id": 1,
+      "CustomerId": 1,
+      "CarId": 3,
+      "PickupLocationId": 1,
+      "ReturnLocationId": 1,
+      "StartDate": "2026-09-04T10:00:00",
+      "EndDate": "2026-09-05T10:00:00",
+      "TotalCost": 150.00,
+      "Status": "Cancelled"
+    },
+    {
+      "Id": 2,
+      "CustomerId": 1,
+      "CarId": 2,
+      "PickupLocationId": 2,
+      "ReturnLocationId": 3,
+      "StartDate": "2026-09-06T14:55:56.7296061+03:00",
+      "EndDate": "2026-09-13T14:55:56.7314119+03:00",
+      "ActualReturnDate": "2026-09-06T14:56:29.0685789+03:00",
+      "TotalCost": 525.00,
+      "Status": "Completed"
+    },
+    {
+      "Id": 3,
+      "CustomerId": 1,
+      "CarId": 4,
+      "PickupLocationId": 1,
+      "ReturnLocationId": 2,
+      "StartDate": "2026-09-06T15:48:50.4522748+03:00",
+      "EndDate": "2026-09-10T15:48:50.4523669+03:00",
+      "TotalCost": 140.00,
+      "Status": "Active"
+    }
+  ],
+  "Payments": [
+    {
+      "Id": 1,
+      "RentalId": 1,
+      "TotalSummer": 150.00,
+      "PaymentDate": "2026-09-04T10:15:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 2,
+      "RentalId": 2,
+      "TotalSummer": 525.00,
+      "PaymentDate": "2026-09-06T14:55:56.7316107+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 3,
+      "RentalId": 3,
+      "TotalSummer": 140.00,
+      "PaymentDate": "2026-09-06T15:48:50.4528005+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    }
+  ]
+}

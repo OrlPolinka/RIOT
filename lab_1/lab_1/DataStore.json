@@ -1,0 +1,136 @@
+{
+  "Customers": [
+    {
+      "Id": 1,
+      "Surname": "Стальмаченок",
+      "Name": "Полина",
+      "Patronymic": "Михайловна",
+      "Email": "poli@gmail.ru",
+      "PhoneNumber": "+375291234567",
+      "DriverLicenseNumber": "AB1234567",
+      "DateOfBirth": "2003-05-15T00:00:00",
+      "RegistrationDate": "2025-08-02T10:30:00"
+    },
+    {
+      "Id": 2,
+      "Surname": "Шкиндер",
+      "Name": "Вероника",
+      "Patronymic": "Валерьевна",
+      "Email": "kind@gmail.ru",
+      "PhoneNumber": "+375297654321",
+      "DriverLicenseNumber": "CD7654321",
+      "DateOfBirth": "1999-11-03T00:00:00",
+      "RegistrationDate": "2022-03-12T15:20:00"
+    },
+    {
+      "Id": 3,
+      "Surname": "Астукевич",
+      "Name": "Даниил",
+      "Patronymic": "Алексеевич",
+      "Email": "dany@mail.ru",
+      "PhoneNumber": "+375295556677",
+      "DriverLicenseNumber": "EF9876543",
+      "DateOfBirth": "2006-04-26T00:00:00",
+      "RegistrationDate": "2026-03-10T09:15:00"
+    }
+  ],
+  "Cars": [
+    {
+      "Id": 1,
+      "Brand": "Toyota",
+      "Model": "Camry",
+      "Year": 2020,
+      "LicensePlate": "А123ВС",
+      "PricePerDay": 45.00,
+      "IsAvailable": true,
+      "Color": "Серебристый"
+    },
+    {
+      "Id": 2,
+      "Brand": "BMW",
+      "Model": "X5",
+      "Year": 2021,
+      "LicensePlate": "В456ХК",
+      "PricePerDay": 75.00,
+      "IsAvailable": true,
+      "Color": "Черный"
+    },
+    {
+      "Id": 3,
+      "Brand": "Kia",
+      "Model": "Rio",
+      "Year": 2022,
+      "LicensePlate": "С789ОР",
+      "PricePerDay": 30.00,
+      "IsAvailable": false,
+      "Color": "Белый"
+    },
+    {
+      "Id": 4,
+      "Brand": "Hyundai",
+      "Model": "Solaris",
+      "Year": 2021,
+      "LicensePlate": "Е321КМ",
+      "PricePerDay": 35.00,
+      "IsAvailable": true,
+      "Color": "Красный"
+    },
+    {
+      "Id": 5,
+      "Brand": "Mercedes",
+      "Model": "E-Class",
+      "Year": 2022,
+      "LicensePlate": "К654НЕ",
+      "PricePerDay": 90.00,
+      "IsAvailable": true,
+      "Color": "Синий"
+    }
+  ],
+  "Locations": [
+    {
+      "Id": 1,
+      "City": "Минск",
+      "Address": "ул. Независимости, 15",
+      "Phone": "+375291111111",
+      "WorkingHours": "09:00-21:00"
+    },
+    {
+      "Id": 2,
+      "City": "Минск",
+      "Address": "ул. Притыцкого, 45",
+      "Phone": "+375292222222",
+      "WorkingHours": "08:00-20:00"
+    },
+    {
+      "Id": 3,
+      "City": "Гомель",
+      "Address": "ул. Советская, 10",
+      "Phone": "+375293333333",
+      "WorkingHours": "09:00-19:00"
+    }
+  ],
+  "Rentals": [
+    {
+      "Id": 1,
+      "CustomerId": 1,
+      "CarId": 3,
+      "PickupLocationId": 1,
+      "ReturnLocationId": 1,
+      "StartDate": "2026-09-04T10:00:00",
+      "EndDate": "2026-09-05T10:00:00",
+      "ActualReturnDate": null,
+      "TotalCost": 150.00,
+      "Status": "Active"
+    }
+  ],
+  "Payments": [
+    {
+      "Id": 1,
+      "RentalId": 1,
+      "TotalSummer": 150.00,
+      "PaymentDate": "2026-09-04T10:15:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    }
+  ]
+}
