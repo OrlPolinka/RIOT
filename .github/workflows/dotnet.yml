@@ -1,0 +1,33 @@
+name: .NET Build and Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Клонируем репозиторий
+    - uses: actions/checkout@v4
+    
+    # 2. Устанавливаем .NET SDK
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x  # Или твоя версия .NET
+    
+    # 3. Восстанавливаем зависимости
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    # 4. Собираем проект
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    
+    # 5. Запускаем тесты (если они есть)
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
