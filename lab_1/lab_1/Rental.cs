@@ -20,7 +20,7 @@ namespace lab_1
         public int PickupLocationId { get; set; }
 
         [JsonPropertyName("ReturnLocationId")]
-        public int ReturnLocationId { get; set; }
+        public int? ReturnLocationId { get; set; }
 
         [JsonPropertyName("StartDate")]
         public DateTime StartDate { get; set; }

@@ -151,15 +151,7 @@ namespace lab_1
                         ErrorMessage = $"Локация выдачи с ID {rentalData.PickupLocationId} не найдена"
                     };
 
-                var returnLocation = _dataStore.Locations.FirstOrDefault(l => l.Id == rentalData.ReturnLocationId);
-                if (returnLocation == null)
-                    return new Response
-                    {
-                        RequestId = request.RequestId,
-                        Success = false,
-                        Operation = "CreateRental",
-                        ErrorMessage = $"Локация возврата с ID {rentalData.ReturnLocationId} не найдена"
-                    };
+               
 
                 if (rentalData.Days <= 0)
                     return new Response
@@ -176,7 +168,7 @@ namespace lab_1
                     CustomerId = rentalData.CustomerId,
                     CarId = rentalData.CarId,
                     PickupLocationId = rentalData.PickupLocationId,
-                    ReturnLocationId = rentalData.ReturnLocationId,
+                    ReturnLocationId = null,
                     StartDate = DateTime.Now,
                     EndDate = DateTime.Now.AddDays(rentalData.Days),
                     ActualReturnDate = null,
@@ -261,6 +253,7 @@ namespace lab_1
                     };
 
                 rental.Status = "Cancelled";
+                rental.ActualReturnDate = DateTime.Now;
 
                 var car = _dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
                 if (car != null)
@@ -276,7 +269,12 @@ namespace lab_1
                     RequestId = request.RequestId,
                     Success = true,
                     Operation = "CancelRental",
-                    Result = JsonSerializer.Serialize(new { message = $"Аренда #{rental.Id} отменена" })
+                    Result = JsonSerializer.Serialize(new
+                    {
+                        message = $"Аренда #{rental.Id} отменена",
+                        rentalId = rental.Id,
+                        status = rental.Status
+                    })
                 };
             }
             catch (Exception ex)
@@ -325,7 +323,18 @@ namespace lab_1
                         ErrorMessage = "Нельзя вернуть отмененную аренду"
                     };
 
+                var returnLocation = _dataStore.Locations.FirstOrDefault(l => l.Id == returnData.ReturnLocationId);
+                if (returnLocation == null)
+                    return new Response
+                    {
+                        RequestId = request.RequestId,
+                        Success = false,
+                        Operation = "ReturnCar",
+                        ErrorMessage = $"Локация возврата с ID {returnData.ReturnLocationId} не найдена"
+                    };
+
                 rental.ActualReturnDate = DateTime.Now;
+                rental.ReturnLocationId = returnData.ReturnLocationId;
                 rental.Status = "Completed";
 
                 var car = _dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
@@ -334,7 +343,7 @@ namespace lab_1
 
                 _dataStore.SaveData();
 
-                Console.WriteLine($"[Событие] CarReturned: Машина {car.Brand} {car.Model} возвращена");
+                Console.WriteLine($"[Событие] CarReturned: Машина {car.Brand} {car.Model} возвращена в {returnLocation.City}, {returnLocation.Address}");
 
                 return new Response
                 {
@@ -345,7 +354,8 @@ namespace lab_1
                     {
                         message = $"Машина {car.Brand} {car.Model} возвращена",
                         rentalId = rental.Id,
-                        returnDate = rental.ActualReturnDate
+                        returnDate = rental.ActualReturnDate,
+                        returnLocation = $"{returnLocation.City}, {returnLocation.Address}"
                     })
                 };
             }

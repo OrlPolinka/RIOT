@@ -260,9 +260,9 @@ namespace lab_1
             }
 
             int pickupId = SafeReadInt("ID места выдачи: ", 1, dataStore.Locations.Count);
-            int returnId = SafeReadInt("ID места возврата: ", 1, dataStore.Locations.Count);
+            
 
-            var request = client.CreateRentalRequest(customerId, carId, pickupId, returnId, days);
+            var request = client.CreateRentalRequest(customerId, carId, pickupId, days);
             var response = client.SendRequest(request);
 
             if (response.Success)
@@ -292,13 +292,22 @@ namespace lab_1
             Console.Clear();
             Console.WriteLine("===== ОТМЕНА АРЕНДЫ =====");
 
-            ShowAllRentals(dataStore);
+            var activeRentals = dataStore.Rentals.Where(r => r.Status == "Active").ToList();
 
-            if (dataStore.Rentals.Count == 0)
+            if (activeRentals.Count == 0)
             {
                 Console.WriteLine("Нет активных аренд для отмены.");
                 Console.ReadKey();
                 return;
+            }
+
+            Console.WriteLine("\nАктивные аренды:");
+            foreach (var rent in activeRentals)
+            {
+                var c = dataStore.Cars.FirstOrDefault(car => car.Id == rent.CarId);
+                var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rent.CustomerId);
+                Console.WriteLine($"ID: {rent.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
+                                 $"Машина: {c?.Brand} {c?.Model}, Стоимость: {rent.TotalCost} руб.");
             }
 
             int rentalId = SafeReadInt("Введите ID аренды для отмены: ");
@@ -311,16 +320,36 @@ namespace lab_1
                 return;
             }
 
+            if (rental.Status != "Active")
+            {
+                Console.WriteLine($"Аренда уже имеет статус {rental.Status}. Отмена невозможна.");
+                Console.ReadKey();
+                return;
+            }
+
+            var car = dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
+            Console.WriteLine($"\nВы уверены, что хотите отменить аренду машины {car?.Brand} {car?.Model}?");
+            Console.Write("(y/n): ");
+            string confirm = Console.ReadLine()?.ToLower();
+
+            if (confirm != "y")
+            {
+                Console.WriteLine("Отмена отменена!");
+                Console.ReadKey();
+                return;
+            }
+
             var request = client.CreateCancelRentalRequest(rentalId);
             var response = client.SendRequest(request);
 
             if (response.Success)
             {
                 Console.WriteLine("Аренда успешно отменена!");
+                Console.WriteLine("Машина снова доступна для аренды.");
 
                 rental.Status = "Cancelled";
-                var car = dataStore.Cars.First(c => c.Id == rental.CarId);
-                car.IsAvailable = true;
+                if (car != null)
+                    car.IsAvailable = true;
                 dataStore.SaveData();
             }
             else
@@ -337,13 +366,22 @@ namespace lab_1
             Console.Clear();
             Console.WriteLine("===== ВОЗВРАТ МАШИНЫ =====");
 
-            ShowAllRentals(dataStore);
+            var activeRentals = dataStore.Rentals.Where(r => r.Status == "Active").ToList();
 
-            if (dataStore.Rentals.Count == 0)
+            if (activeRentals.Count == 0)
             {
                 Console.WriteLine("Нет активных аренд для возврата.");
                 Console.ReadKey();
                 return;
+            }
+
+            Console.WriteLine("\nАктивные аренды:");
+            foreach (var rent in activeRentals)
+            {
+                var car = dataStore.Cars.FirstOrDefault(c => c.Id == rent.CarId);
+                var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rent.CustomerId);
+                Console.WriteLine($"ID: {rent.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
+                                 $"Машина: {car?.Brand} {car?.Model}, Стоимость: {rent.TotalCost} руб.");
             }
 
             int rentalId = SafeReadInt("Введите ID аренды для возврата: ");
@@ -356,14 +394,39 @@ namespace lab_1
                 return;
             }
 
-            var request = client.CreateReturnCarRequest(rentalId);
+            if (rental.Status != "Active")
+            {
+                Console.WriteLine($"Аренда имеет статус {rental.Status}. Возврат невозможен.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("\nДоступные локации для возврата:");
+            foreach (var loc in dataStore.Locations)
+            {
+                Console.WriteLine($"ID: {loc.Id}, {loc.City}, {loc.Address} (работает: {loc.WorkingHours})");
+            }
+
+            int returnLocationId = SafeReadInt("Выберите ID локации возврата: ", 1, dataStore.Locations.Count);
+
+            var returnLocation = dataStore.Locations.FirstOrDefault(l => l.Id == returnLocationId);
+            if (returnLocation == null)
+            {
+                Console.WriteLine("Локация не найдена!");
+                Console.ReadKey();
+                return;
+            }
+
+            var request = client.CreateReturnCarRequest(rentalId, returnLocationId);
             var response = client.SendRequest(request);
 
             if (response.Success)
             {
                 Console.WriteLine("Машина успешно возвращена!");
+                Console.WriteLine($"Место возврата: {returnLocation.City}, {returnLocation.Address}");
 
                 rental.ActualReturnDate = DateTime.Now;
+                rental.ReturnLocationId = returnLocationId;
                 rental.Status = "Completed";
                 var car = dataStore.Cars.First(c => c.Id == rental.CarId);
                 car.IsAvailable = true;
@@ -386,15 +449,26 @@ namespace lab_1
                 Console.WriteLine("Аренд пока нет.");
                 //return;
             }
-
-            foreach (var rental in dataStore.Rentals)
+            else
             {
-                var car = dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
-                var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rental.CustomerId);
 
-                Console.WriteLine($"ID: {rental.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
-                                  $"Машина: {car?.Brand} {car?.Model}, Статус: {rental.Status}, " +
-                                  $"Стоимость: {rental.TotalCost} руб.");
+                foreach (var rental in dataStore.Rentals)
+                {
+                    var car = dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
+                    var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rental.CustomerId);
+                    var pickupLoc = dataStore.Locations.FirstOrDefault(l => l.Id == rental.PickupLocationId);
+                    var returnLoc = dataStore.Locations.FirstOrDefault(l => l.Id == rental.ReturnLocationId);
+
+                    Console.WriteLine($"ID: {rental.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
+                                      $"Машина: {car?.Brand} {car?.Model}, Статус: {rental.Status}, " +
+                                      $"Стоимость: {rental.TotalCost} руб., " +
+                                      $"Выдача: {pickupLoc?.City}, {pickupLoc?.Address}, " +
+                                      $"Возврат: {(rental.Status == "Completed" ? $"{returnLoc?.City}, {returnLoc?.Address}" : "не указано (ждем возврата)")}, " +
+                                      $"Период: {rental.StartDate:dd.MM.yyyy} - {rental.EndDate:dd.MM.yyyy}");
+
+                    if (rental.ActualReturnDate.HasValue)
+                        Console.WriteLine($"  Фактический возврат: {rental.ActualReturnDate:dd.MM.yyyy HH:mm}");
+                }
             }
 
             Console.WriteLine("\nНажмите любую клавишу для продолжения...");

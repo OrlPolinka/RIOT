@@ -73,5 +73,8 @@ namespace lab_1
     {
         [JsonPropertyName("RentalId")]
         public int RentalId { get; set; }
+
+        [JsonPropertyName("ReturnLocationId")]
+        public int ReturnLocationId { get; set; }
     }
 }

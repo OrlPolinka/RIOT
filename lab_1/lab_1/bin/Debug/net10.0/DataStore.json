@@ -52,7 +52,7 @@
       "Year": 2021,
       "LicensePlate": "\u0412456\u0425\u041A",
       "PricePerDay": 75.00,
-      "IsAvailable": true,
+      "IsAvailable": false,
       "Color": "\u0427\u0435\u0440\u043D\u044B\u0439"
     },
     {
@@ -62,7 +62,7 @@
       "Year": 2022,
       "LicensePlate": "\u0421789\u041E\u0420",
       "PricePerDay": 30.00,
-      "IsAvailable": true,
+      "IsAvailable": false,
       "Color": "\u0411\u0435\u043B\u044B\u0439"
     },
     {
@@ -143,6 +143,62 @@
       "EndDate": "2026-09-10T15:48:50.4523669+03:00",
       "TotalCost": 140.00,
       "Status": "Active"
+    },
+    {
+      "Id": 4,
+      "CustomerId": 3,
+      "CarId": 2,
+      "PickupLocationId": 3,
+      "ReturnLocationId": 1,
+      "StartDate": "2026-09-07T08:08:42.3303735+03:00",
+      "EndDate": "2026-09-11T08:08:42.3306881+03:00",
+      "TotalCost": 300.00,
+      "Status": "Active"
+    },
+    {
+      "Id": 5,
+      "CustomerId": 1,
+      "CarId": 1,
+      "PickupLocationId": 1,
+      "ReturnLocationId": 2,
+      "StartDate": "2026-09-07T08:24:45.0902468+03:00",
+      "EndDate": "2026-09-12T08:24:45.0903401+03:00",
+      "TotalCost": 225.00,
+      "Status": "Cancelled"
+    },
+    {
+      "Id": 6,
+      "CustomerId": 3,
+      "CarId": 3,
+      "PickupLocationId": 3,
+      "ReturnLocationId": 2,
+      "StartDate": "2026-09-08T08:32:44.935817+03:00",
+      "EndDate": "2026-09-13T08:32:44.9359859+03:00",
+      "TotalCost": 150.00,
+      "Status": "Active"
+    },
+    {
+      "Id": 7,
+      "CustomerId": 1,
+      "CarId": 5,
+      "PickupLocationId": 3,
+      "StartDate": "2026-09-08T08:36:23.598721+03:00",
+      "EndDate": "2026-09-17T08:36:23.5988706+03:00",
+      "ActualReturnDate": "2026-09-08T08:39:39.9675782+03:00",
+      "TotalCost": 810.00,
+      "Status": "Cancelled"
+    },
+    {
+      "Id": 8,
+      "CustomerId": 2,
+      "CarId": 1,
+      "PickupLocationId": 3,
+      "ReturnLocationId": 3,
+      "StartDate": "2026-09-08T08:38:26.8495696+03:00",
+      "EndDate": "2026-09-14T08:38:26.8497002+03:00",
+      "ActualReturnDate": "2026-09-08T08:39:09.4682794+03:00",
+      "TotalCost": 270.00,
+      "Status": "Completed"
     }
   ],
   "Payments": [
@@ -167,6 +223,46 @@
       "RentalId": 3,
       "TotalSummer": 140.00,
       "PaymentDate": "2026-09-06T15:48:50.4528005+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 4,
+      "RentalId": 4,
+      "TotalSummer": 300.00,
+      "PaymentDate": "2026-09-07T08:08:42.3310201+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 5,
+      "RentalId": 5,
+      "TotalSummer": 225.00,
+      "PaymentDate": "2026-09-07T08:24:45.091121+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 6,
+      "RentalId": 6,
+      "TotalSummer": 150.00,
+      "PaymentDate": "2026-09-08T08:32:44.9365307+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 7,
+      "RentalId": 7,
+      "TotalSummer": 810.00,
+      "PaymentDate": "2026-09-08T08:36:23.5997378+03:00",
+      "PaymentMethod": "Card",
+      "Status": "Paid"
+    },
+    {
+      "Id": 8,
+      "RentalId": 8,
+      "TotalSummer": 270.00,
+      "PaymentDate": "2026-09-08T08:38:26.8504411+03:00",
       "PaymentMethod": "Card",
       "Status": "Paid"
     }

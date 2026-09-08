@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|solutionrelative:lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,24 +31,20 @@
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\helpdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,63 +62,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Protocol.cs",
-              "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
-              "RelativeDocumentMoniker": "lab_1\\Protocol.cs",
-              "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
-              "RelativeToolTip": "lab_1\\Protocol.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAwEoAAAApAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "lab_1.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "lab_1.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:43:26.377Z",
+              "WhenOpened": "2026-09-08T05:42:36.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Protocol.cs",
+              "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
+              "RelativeDocumentMoniker": "lab_1\\Protocol.cs",
+              "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
+              "RelativeToolTip": "lab_1\\Protocol.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAQwE0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T11:43:26.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Client.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Client.cs",
               "RelativeDocumentMoniker": "lab_1\\Client.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Client.cs",
               "RelativeToolTip": "lab_1\\Client.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAkwF0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:39:01.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T11:39:01.984Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Server.cs",
               "RelativeDocumentMoniker": "lab_1\\Server.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Server.cs",
               "RelativeToolTip": "lab_1\\Server.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAswEsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAADwvxAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:36:44.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T11:36:44.821Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Service.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeDocumentMoniker": "lab_1\\Service.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeToolTip": "lab_1\\Service.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAowB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAowJ4AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:13:28.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T11:13:28.638Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Car.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Car.cs",
               "RelativeDocumentMoniker": "lab_1\\Car.cs",
@@ -126,20 +139,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "HelpData.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\HelpData.cs",
               "RelativeDocumentMoniker": "lab_1\\HelpData.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\HelpData.cs",
               "RelativeToolTip": "lab_1\\HelpData.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAA5wBkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:00:52.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-06T11:00:52.255Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "DataStore.json",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\DataStore.json",
               "RelativeDocumentMoniker": "lab_1\\DataStore.json",
@@ -151,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Location.cs",
               "RelativeDocumentMoniker": "lab_1\\Location.cs",
@@ -163,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Payment.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Payment.cs",
               "RelativeDocumentMoniker": "lab_1\\Payment.cs",
@@ -175,32 +187,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "Rental.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Rental.cs",
               "RelativeDocumentMoniker": "lab_1\\Rental.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Rental.cs",
               "RelativeToolTip": "lab_1\\Rental.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-03T08:52:42.834Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Program.cs",
               "RelativeDocumentMoniker": "lab_1\\Program.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Program.cs",
               "RelativeToolTip": "lab_1\\Program.cs",
-              "ViewState": "AgIAAHwBAAAAAAAAAAAQwJABAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAABAAAAAAAAAAAhwAgBAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-03T08:51:18.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-03T08:51:18.322Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Customer.cs",
               "RelativeDocumentMoniker": "lab_1\\Customer.cs",

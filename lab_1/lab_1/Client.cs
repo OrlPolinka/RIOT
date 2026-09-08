@@ -85,14 +85,13 @@ namespace lab_1
             };
         }
 
-        public Request CreateRentalRequest(int customerId, int carId, int pickupLocationId, int returnLocationId, int days)
+        public Request CreateRentalRequest(int customerId, int carId, int pickupLocationId, int days)
         {
             var data = new CreateRentalRequest
             {
                 CustomerId = customerId,
                 CarId = carId,
                 PickupLocationId = pickupLocationId,
-                ReturnLocationId = returnLocationId,
                 Days = days
             };
 
@@ -116,9 +115,13 @@ namespace lab_1
             };
         }
 
-        public Request CreateReturnCarRequest(int rentalId)
+        public Request CreateReturnCarRequest(int rentalId, int returnLocationId)
         {
-            var data = new ReturnCarRequest { RentalId = rentalId };
+            var data = new ReturnCarRequest
+            {
+                RentalId = rentalId,
+                ReturnLocationId = returnLocationId
+            };
 
             return new Request
             {
