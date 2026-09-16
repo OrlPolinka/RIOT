@@ -64,6 +64,26 @@ namespace lab_1
             }
         }
 
+        public Request CreateGetAllRentalsRequest()
+        {
+            return new Request
+            {
+                Operation = "GetAllRentals",
+                Data = "{}",
+                RequestId = ++_requestCounter
+            };
+        }
+
+        public Request CreateGetAllLocationsRequest()
+        {
+            return new Request
+            {
+                Operation = "GetAllLocations",
+                Data = "{}",
+                RequestId = ++_requestCounter
+            };
+        }
+
 
 
 

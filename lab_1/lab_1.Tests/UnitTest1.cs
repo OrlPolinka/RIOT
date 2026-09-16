@@ -139,7 +139,7 @@ namespace lab_1.Tests
             Assert.Equal("Active", rental.Status);
             Assert.Equal(135.00m, rental.TotalCost); 
 
-            Console.WriteLine($"✓ Аренда создана: ID={rental.Id}, Стоимость={rental.TotalCost} руб.");
+            Console.WriteLine($"Аренда создана: ID={rental.Id}, Стоимость={rental.TotalCost} руб.");
 
             var car = _dataStore.Cars.First(c => c.Id == 1);
             Assert.False(car.IsAvailable, "Машина должна быть недоступна после аренды");

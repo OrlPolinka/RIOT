@@ -3,44 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|solutionrelative:lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\helpdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\helpdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1.tests\\concurrencytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|solutionrelative:lab_1.tests\\concurrencytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\helpdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\helpdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|solutionrelative:lab_1.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\protocol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\datastore.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,67 +71,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ConcurrencyTests.cs",
+              "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\ConcurrencyTests.cs",
+              "RelativeDocumentMoniker": "lab_1.Tests\\ConcurrencyTests.cs",
+              "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\ConcurrencyTests.cs",
+              "RelativeToolTip": "lab_1.Tests\\ConcurrencyTests.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAAAK0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-10T09:27:42.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "lab_1.Tests\\UnitTest1.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\UnitTest1.cs",
               "RelativeToolTip": "lab_1.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAswI0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-08T05:42:36.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Protocol.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
               "RelativeDocumentMoniker": "lab_1\\Protocol.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Protocol.cs",
               "RelativeToolTip": "lab_1\\Protocol.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAQwE0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:43:26.377Z"
+              "WhenOpened": "2026-09-06T11:43:26.377Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Client.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Client.cs",
               "RelativeDocumentMoniker": "lab_1\\Client.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Client.cs",
               "RelativeToolTip": "lab_1\\Client.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAkwF0AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAswFQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:39:01.984Z"
+              "WhenOpened": "2026-09-06T11:39:01.984Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Server.cs",
               "RelativeDocumentMoniker": "lab_1\\Server.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Server.cs",
               "RelativeToolTip": "lab_1\\Server.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAADwvxAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAUwHkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:36:44.821Z"
+              "WhenOpened": "2026-09-06T11:36:44.821Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Service.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeDocumentMoniker": "lab_1\\Service.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeToolTip": "lab_1\\Service.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAowJ4AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwLMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:13:28.638Z"
+              "WhenOpened": "2026-09-06T11:13:28.638Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Car.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Car.cs",
               "RelativeDocumentMoniker": "lab_1\\Car.cs",
@@ -139,31 +160,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "HelpData.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\HelpData.cs",
               "RelativeDocumentMoniker": "lab_1\\HelpData.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\HelpData.cs",
               "RelativeToolTip": "lab_1\\HelpData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAA5wAkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-06T11:00:52.255Z"
+              "WhenOpened": "2026-09-06T11:00:52.255Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DataStore.json",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\DataStore.json",
               "RelativeDocumentMoniker": "lab_1\\DataStore.json",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\DataStore.json",
               "RelativeToolTip": "lab_1\\DataStore.json",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIAAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-09-06T10:55:13.818Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Location.cs",
               "RelativeDocumentMoniker": "lab_1\\Location.cs",
@@ -175,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Payment.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Payment.cs",
               "RelativeDocumentMoniker": "lab_1\\Payment.cs",
@@ -193,33 +215,36 @@
               "RelativeDocumentMoniker": "lab_1\\Rental.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Rental.cs",
               "RelativeToolTip": "lab_1\\Rental.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAA/wBYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-03T08:52:42.834Z"
+              "WhenOpened": "2026-09-03T08:52:42.834Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Program.cs",
               "RelativeDocumentMoniker": "lab_1\\Program.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Program.cs",
               "RelativeToolTip": "lab_1\\Program.cs",
-              "ViewState": "AgIAAAABAAAAAAAAAAAhwAgBAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAIABAAAAAAAAAAAnwJ4BAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-03T08:51:18.322Z"
+              "WhenOpened": "2026-09-03T08:51:18.322Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Customer.cs",
               "RelativeDocumentMoniker": "lab_1\\Customer.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Customer.cs",
               "RelativeToolTip": "lab_1\\Customer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-03T08:51:14.581Z"
+              "WhenOpened": "2026-09-03T08:51:14.581Z",
+              "EditorCaption": ""
             }
           ]
         }

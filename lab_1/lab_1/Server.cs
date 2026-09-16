@@ -4,6 +4,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace lab_1
 {
@@ -13,6 +15,15 @@ namespace lab_1
         private Service _service;
         private HelpData _dataStore;
         private bool _isRunning;
+        private int _clientCounter = 0;
+        private void Log(string message, ConsoleColor color = ConsoleColor.Gray)
+        {
+            var oldColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] {message}");
+            Console.ForegroundColor = oldColor;
+        }
+
 
         public Server(int port)
         {
@@ -28,29 +39,36 @@ namespace lab_1
             {
                 _tcpListener.Start();
                 _isRunning = true;
-                Console.WriteLine($"[Сервер] Запущен на порту 3000");
-                Console.WriteLine("[Сервер] Ожидание подключений...");
-                Console.WriteLine($"[Сервер] Загружено: {_dataStore.Customers.Count} клиентов, {_dataStore.Cars.Count} машин");
+                Log("Сервер запущен на порту 3000", ConsoleColor.Green);
+                Log("Ожидание подключений...");
+                Log($"Загружено: {_dataStore.Customers.Count} клиентов, {_dataStore.Cars.Count} машин");
 
                 while (_isRunning)
                 {
                     try
                     {
                         TcpClient client = _tcpListener.AcceptTcpClient();
-                        Console.WriteLine("[Сервер] Подключен клиент");
-
-                        Thread clientThread = new Thread(() => HandleClient(client));
-                        clientThread.Start();
+                        int clientId = Interlocked.Increment(ref _clientCounter);
+                        _ = Task.Run(() => HandleClientAsync(client, clientId));
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        break;
+                    }
+                    catch (SocketException ex) when (!_isRunning)
+                    {
+                        break;
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"[Сервер] Ошибка при принятии клиента: {ex.Message}");
+                        if (_isRunning)
+                            Log($"Ошибка при принятии клиента: {ex.Message}", ConsoleColor.Red);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Сервер] Ошибка при запуске: {ex.Message}");
+                Log($"Ошибка при запуске: {ex.Message}", ConsoleColor.Red);
             }
         }
 
@@ -62,8 +80,13 @@ namespace lab_1
             Console.WriteLine("[Сервер] Остановлен");
         }
 
-        private void HandleClient(TcpClient client)
+        private async Task HandleClientAsync(TcpClient client, int clientId)
         {
+            int taskId = Task.CurrentId ?? Thread.CurrentThread.ManagedThreadId;
+            string clientInfo = $"Client {clientId} (Task {taskId})";
+
+            Log($"{clientInfo} → START", ConsoleColor.Cyan);
+
             try
             {
                 using (NetworkStream stream = client.GetStream())
@@ -75,7 +98,7 @@ namespace lab_1
 
                         try
                         {
-                            bytesRead = stream.Read(buffer, 0, buffer.Length);
+                            bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
                         }
                         catch
                         {
@@ -88,22 +111,30 @@ namespace lab_1
                         }
 
                         string requestJson = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                        Console.WriteLine($"[Сервер] Получен запрос: {requestJson}");
+                        Log($"{clientInfo} → Получен запрос: {requestJson}", ConsoleColor.Yellow);
 
                         try
                         {
                             Request request = JsonSerializer.Deserialize<Request>(requestJson);
+
+                            Log($"{clientInfo} → Операция: {request.Operation} (RequestId: {request.RequestId})", ConsoleColor.Magenta);
+
+                            //await Task.Delay(10000);
+
                             Response response = _service.ProcessRequest(request);
 
                             string responseJson = JsonSerializer.Serialize(response);
                             byte[] responseBytes = Encoding.UTF8.GetBytes(responseJson);
-                            stream.Write(responseBytes, 0, responseBytes.Length);
-                            Console.WriteLine($"[Сервер] Отправлен ответ");
+
+
+
+                            await  stream.WriteAsync(responseBytes, 0, responseBytes.Length);
+                            Log($"{clientInfo} → Ответ отправлен", ConsoleColor.Green);
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"[Сервер] Ошибка обработки запроса: {ex.Message}");
-                            
+                            Log($"{clientInfo} → Ошибка обработки: {ex.Message}", ConsoleColor.Red);
+
                             var errorResponse = new Response
                             {
                                 Success = false,
@@ -118,12 +149,12 @@ namespace lab_1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Сервер] Ошибка при обработке клиента: {ex.Message}");
+                Log($"{clientInfo} → Ошибка: {ex.Message}", ConsoleColor.Red);
             }
             finally
             {
                 client.Close();
-                Console.WriteLine("[Сервер] Клиент отключен");
+                Log($"{clientInfo} → END", ConsoleColor.Cyan);
             }
         }
     }

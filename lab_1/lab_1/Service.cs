@@ -8,6 +8,7 @@ namespace lab_1
     public class Service
     {
         private HelpData _dataStore;
+        //private readonly object _lock = new object();
 
         public Service(HelpData dataStore)
         {
@@ -29,29 +30,37 @@ namespace lab_1
 
                 Console.WriteLine($"[Сервер] Получен запрос: {request.Operation} (ID: {request.RequestId})");
 
-                switch (request.Operation)
-                {
-                    case "SearchCar":
-                        return SearchCar(request);
-                    case "CreateRental":
-                        return CreateRental(request);
-                    case "CancelRental":
-                        return CancelRental(request);
-                    case "ReturnCar":
-                        return ReturnCar(request);
-                    case "GetAllCars":
-                        return GetAllCars(request);
-                    case "GetAllCustomers":
-                        return GetAllCustomers(request);
-                    default:
-                        return new Response
-                        {
-                            RequestId = request.RequestId,
-                            Success = false,
-                            Operation = request.Operation,
-                            ErrorMessage = $"Неизвестная операция: {request.Operation}"
-                        };
-                }
+                //lock (_lock)
+                //{
+
+                    switch (request.Operation)
+                    {
+                        case "SearchCar":
+                            return SearchCar(request);
+                        case "CreateRental":
+                            return CreateRental(request);
+                        case "CancelRental":
+                            return CancelRental(request);
+                        case "ReturnCar":
+                            return ReturnCar(request);
+                        case "GetAllCars":
+                            return GetAllCars(request);
+                        case "GetAllCustomers":
+                            return GetAllCustomers(request);
+                        case "GetAllRentals":
+                            return GetAllRentals(request);
+                        case "GetAllLocations":
+                            return GetAllLocations(request);
+                        default:
+                            return new Response
+                            {
+                                RequestId = request.RequestId,
+                                Success = false,
+                                Operation = request.Operation,
+                                ErrorMessage = $"Неизвестная операция: {request.Operation}"
+                            };
+                    }
+                //}
             }
             catch (Exception ex)
             {
@@ -140,6 +149,10 @@ namespace lab_1
                         Operation = "CreateRental",
                         ErrorMessage = $"Машина {car.Brand} {car.Model} уже арендована"
                     };
+
+                Console.WriteLine($"[ГОНКА] Поток {Thread.CurrentThread.ManagedThreadId}: ждём 3 секунды...");
+                Thread.Sleep(3000);
+                Console.WriteLine($"[ГОНКА] Поток {Thread.CurrentThread.ManagedThreadId}: продолжаем...");
 
                 var pickupLocation = _dataStore.Locations.FirstOrDefault(l => l.Id == rentalData.PickupLocationId);
                 if (pickupLocation == null)
@@ -416,6 +429,56 @@ namespace lab_1
                     RequestId = request.RequestId,
                     Success = false,
                     Operation = "GetAllCustomers",
+                    ErrorMessage = ex.Message
+                };
+            }
+        }
+
+        private Response GetAllRentals(Request request)
+        {
+            try
+            {
+                var allRentals = _dataStore.Rentals.ToList();
+                return new Response
+                {
+                    RequestId = request.RequestId,
+                    Success = true,
+                    Operation = "GetAllRentals",
+                    Result = JsonSerializer.Serialize(allRentals)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    RequestId = request.RequestId,
+                    Success = false,
+                    Operation = "GetAllRentals",
+                    ErrorMessage = ex.Message
+                };
+            }
+        }
+
+        private Response GetAllLocations(Request request)
+        {
+            try
+            {
+                var allLocations = _dataStore.Locations.ToList();
+                return new Response
+                {
+                    RequestId = request.RequestId,
+                    Success = true,
+                    Operation = "GetAllLocations",
+                    Result = JsonSerializer.Serialize(allLocations)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    RequestId = request.RequestId,
+                    Success = false,
+                    Operation = "GetAllLocations",
                     ErrorMessage = ex.Message
                 };
             }

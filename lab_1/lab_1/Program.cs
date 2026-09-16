@@ -67,7 +67,7 @@ namespace lab_1
                 return;
             }
 
-            var dataStore = new HelpData("DataStore.json");
+            //var dataStore = new HelpData("DataStore.json");
 
             bool isRunning = true;
             while (isRunning)
@@ -96,16 +96,16 @@ namespace lab_1
                         SearchCars(client);
                         break;
                     case "3":
-                        CreateRental(client, dataStore);
+                        CreateRental(client);
                         break;
                     case "4":
-                        CancelRental(client, dataStore);
+                        CancelRental(client);
                         break;
                     case "5":
-                        ReturnCar(client, dataStore);
+                        ReturnCar(client);
                         break;
                     case "6":
-                        ShowAllRentals(dataStore);
+                        ShowAllRentals(client);
                         break;
                     case "7":
                         ShowAllCustomers(client);
@@ -199,13 +199,15 @@ namespace lab_1
             Console.ReadKey();
         }
 
-        static void CreateRental(Client client, HelpData dataStore)
+        static void CreateRental(Client client)
         {
             Console.Clear();
             Console.WriteLine("===== СОЗДАНИЕ АРЕНДЫ =====");
 
-            Console.WriteLine("Доступные машины:");
-            var cars = dataStore.Cars.Where(c => c.IsAvailable).ToList();
+            var cars = FetchCars(client).Where(c => c.IsAvailable).ToList();
+            var customers = FetchCustomers(client);
+            var locations = FetchLocations(client);
+
             if (cars.Count == 0)
             {
                 Console.WriteLine("Нет доступных машин!");
@@ -213,6 +215,7 @@ namespace lab_1
                 return;
             }
 
+            Console.WriteLine("Доступные машины:");
             foreach (var car in cars)
             {
                 Console.WriteLine($"ID: {car.Id}, {car.Brand} {car.Model}, Цена: {car.PricePerDay} руб/день");
@@ -220,30 +223,23 @@ namespace lab_1
 
             int carId = SafeReadInt("Выберите ID машины: ");
 
-            var selectedCar = dataStore.Cars.FirstOrDefault(c => c.Id == carId);
+            var selectedCar = cars.FirstOrDefault(c => c.Id == carId);
             if (selectedCar == null)
             {
-                Console.WriteLine($"Машина с ID {carId} не найдена!");
-                Console.ReadKey();
-                return;
-            }
-
-            if (!selectedCar.IsAvailable)
-            {
-                Console.WriteLine($"Машина {selectedCar.Brand} {selectedCar.Model} уже занята!");
+                Console.WriteLine($"Машина с ID {carId} не найдена или уже занята!");
                 Console.ReadKey();
                 return;
             }
 
             Console.WriteLine("\nДоступные клиенты:");
-            foreach (var c in dataStore.Customers)
+            foreach (var c in customers)
             {
                 Console.WriteLine($"ID: {c.Id}, {c.Surname} {c.Name}");
             }
 
-            int customerId = SafeReadInt("ID клиента: ", 1, dataStore.Customers.Count);
+            int customerId = SafeReadInt("ID клиента: ");
 
-            var customer = dataStore.Customers.FirstOrDefault(c => c.Id == customerId);
+            var customer = customers.FirstOrDefault(c => c.Id == customerId);
             if (customer == null)
             {
                 Console.WriteLine($"Клиент с ID {customerId} не найден!");
@@ -254,13 +250,12 @@ namespace lab_1
             int days = SafeReadInt("Количество дней аренды: ", 1, 365);
 
             Console.WriteLine("\nДоступные локации:");
-            foreach (var loc in dataStore.Locations)
+            foreach (var loc in locations)
             {
                 Console.WriteLine($"ID: {loc.Id}, {loc.City}, {loc.Address}");
             }
 
-            int pickupId = SafeReadInt("ID места выдачи: ", 1, dataStore.Locations.Count);
-            
+            int pickupId = SafeReadInt("ID места выдачи: ", 1, locations.Count);
 
             var request = client.CreateRentalRequest(customerId, carId, pickupId, days);
             var response = client.SendRequest(request);
@@ -272,11 +267,6 @@ namespace lab_1
                 Console.WriteLine($"ID аренды: {rental.Id}");
                 Console.WriteLine($"Общая стоимость: {rental.TotalCost} руб.");
                 Console.WriteLine($"Дата окончания: {rental.EndDate}");
-
-                dataStore.Rentals.Add(rental);
-                var car = dataStore.Cars.First(c => c.Id == carId);
-                car.IsAvailable = false;
-                dataStore.SaveData();
             }
             else
             {
@@ -287,12 +277,16 @@ namespace lab_1
             Console.ReadKey();
         }
 
-        static void CancelRental(Client client, HelpData dataStore)
+        static void CancelRental(Client client)
         {
             Console.Clear();
             Console.WriteLine("===== ОТМЕНА АРЕНДЫ =====");
 
-            var activeRentals = dataStore.Rentals.Where(r => r.Status == "Active").ToList();
+            var rentals = FetchRentals(client);
+            var cars = FetchCars(client);
+            var customers = FetchCustomers(client);
+
+            var activeRentals = rentals.Where(r => r.Status == "Active").ToList();
 
             if (activeRentals.Count == 0)
             {
@@ -304,30 +298,23 @@ namespace lab_1
             Console.WriteLine("\nАктивные аренды:");
             foreach (var rent in activeRentals)
             {
-                var c = dataStore.Cars.FirstOrDefault(car => car.Id == rent.CarId);
-                var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rent.CustomerId);
+                var c = cars.FirstOrDefault(x => x.Id == rent.CarId);
+                var customer = customers.FirstOrDefault(x => x.Id == rent.CustomerId);
                 Console.WriteLine($"ID: {rent.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
                                  $"Машина: {c?.Brand} {c?.Model}, Стоимость: {rent.TotalCost} руб.");
             }
 
             int rentalId = SafeReadInt("Введите ID аренды для отмены: ");
 
-            var rental = dataStore.Rentals.FirstOrDefault(r => r.Id == rentalId);
+            var rental = activeRentals.FirstOrDefault(r => r.Id == rentalId);
             if (rental == null)
             {
-                Console.WriteLine($"Аренда с ID {rentalId} не найдена!");
+                Console.WriteLine($"Активная аренда с ID {rentalId} не найдена!");
                 Console.ReadKey();
                 return;
             }
 
-            if (rental.Status != "Active")
-            {
-                Console.WriteLine($"Аренда уже имеет статус {rental.Status}. Отмена невозможна.");
-                Console.ReadKey();
-                return;
-            }
-
-            var car = dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
+            var car = cars.FirstOrDefault(c => c.Id == rental.CarId);
             Console.WriteLine($"\nВы уверены, что хотите отменить аренду машины {car?.Brand} {car?.Model}?");
             Console.Write("(y/n): ");
             string confirm = Console.ReadLine()?.ToLower();
@@ -346,27 +333,27 @@ namespace lab_1
             {
                 Console.WriteLine("Аренда успешно отменена!");
                 Console.WriteLine("Машина снова доступна для аренды.");
-
-                rental.Status = "Cancelled";
-                if (car != null)
-                    car.IsAvailable = true;
-                dataStore.SaveData();
             }
             else
             {
                 Console.WriteLine($"Ошибка: {response.ErrorMessage}");
             }
 
-            Console.WriteLine("\nНажмите любую клавицу для продолжения...");
+            Console.WriteLine("\nНажмите любую клавишу для продолжения...");
             Console.ReadKey();
         }
 
-        static void ReturnCar(Client client, HelpData dataStore)
+        static void ReturnCar(Client client)
         {
             Console.Clear();
             Console.WriteLine("===== ВОЗВРАТ МАШИНЫ =====");
 
-            var activeRentals = dataStore.Rentals.Where(r => r.Status == "Active").ToList();
+            var rentals = FetchRentals(client);
+            var cars = FetchCars(client);
+            var customers = FetchCustomers(client);
+            var locations = FetchLocations(client);
+
+            var activeRentals = rentals.Where(r => r.Status == "Active").ToList();
 
             if (activeRentals.Count == 0)
             {
@@ -378,38 +365,31 @@ namespace lab_1
             Console.WriteLine("\nАктивные аренды:");
             foreach (var rent in activeRentals)
             {
-                var car = dataStore.Cars.FirstOrDefault(c => c.Id == rent.CarId);
-                var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rent.CustomerId);
+                var car = cars.FirstOrDefault(c => c.Id == rent.CarId);
+                var customer = customers.FirstOrDefault(c => c.Id == rent.CustomerId);
                 Console.WriteLine($"ID: {rent.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
                                  $"Машина: {car?.Brand} {car?.Model}, Стоимость: {rent.TotalCost} руб.");
             }
 
             int rentalId = SafeReadInt("Введите ID аренды для возврата: ");
 
-            var rental = dataStore.Rentals.FirstOrDefault(r => r.Id == rentalId);
+            var rental = activeRentals.FirstOrDefault(r => r.Id == rentalId);
             if (rental == null)
             {
-                Console.WriteLine($"Аренда с ID {rentalId} не найдена!");
-                Console.ReadKey();
-                return;
-            }
-
-            if (rental.Status != "Active")
-            {
-                Console.WriteLine($"Аренда имеет статус {rental.Status}. Возврат невозможен.");
+                Console.WriteLine($"Активная аренда с ID {rentalId} не найдена!");
                 Console.ReadKey();
                 return;
             }
 
             Console.WriteLine("\nДоступные локации для возврата:");
-            foreach (var loc in dataStore.Locations)
+            foreach (var loc in locations)
             {
                 Console.WriteLine($"ID: {loc.Id}, {loc.City}, {loc.Address} (работает: {loc.WorkingHours})");
             }
 
-            int returnLocationId = SafeReadInt("Выберите ID локации возврата: ", 1, dataStore.Locations.Count);
+            int returnLocationId = SafeReadInt("Выберите ID локации возврата: ", 1, locations.Count);
 
-            var returnLocation = dataStore.Locations.FirstOrDefault(l => l.Id == returnLocationId);
+            var returnLocation = locations.FirstOrDefault(l => l.Id == returnLocationId);
             if (returnLocation == null)
             {
                 Console.WriteLine("Локация не найдена!");
@@ -424,13 +404,6 @@ namespace lab_1
             {
                 Console.WriteLine("Машина успешно возвращена!");
                 Console.WriteLine($"Место возврата: {returnLocation.City}, {returnLocation.Address}");
-
-                rental.ActualReturnDate = DateTime.Now;
-                rental.ReturnLocationId = returnLocationId;
-                rental.Status = "Completed";
-                var car = dataStore.Cars.First(c => c.Id == rental.CarId);
-                car.IsAvailable = true;
-                dataStore.SaveData();
             }
             else
             {
@@ -441,23 +414,30 @@ namespace lab_1
             Console.ReadKey();
         }
 
-        static void ShowAllRentals(HelpData dataStore)
+        static void ShowAllRentals(Client client)
         {
-            Console.WriteLine("\n===== ВСЕ АРЕНДЫ =====");
-            if (dataStore.Rentals.Count == 0)
+            Console.Clear();
+            Console.WriteLine("===== ВСЕ АРЕНДЫ =====");
+
+            var rentals = FetchRentals(client);
+            var cars = FetchCars(client);
+            var customers = FetchCustomers(client);
+            var locations = FetchLocations(client);
+
+            if (rentals.Count == 0)
             {
                 Console.WriteLine("Аренд пока нет.");
-                //return;
             }
             else
             {
-
-                foreach (var rental in dataStore.Rentals)
+                foreach (var rental in rentals)
                 {
-                    var car = dataStore.Cars.FirstOrDefault(c => c.Id == rental.CarId);
-                    var customer = dataStore.Customers.FirstOrDefault(c => c.Id == rental.CustomerId);
-                    var pickupLoc = dataStore.Locations.FirstOrDefault(l => l.Id == rental.PickupLocationId);
-                    var returnLoc = dataStore.Locations.FirstOrDefault(l => l.Id == rental.ReturnLocationId);
+                    var car = cars.FirstOrDefault(c => c.Id == rental.CarId);
+                    var customer = customers.FirstOrDefault(c => c.Id == rental.CustomerId);
+                    var pickupLoc = locations.FirstOrDefault(l => l.Id == rental.PickupLocationId);
+                    var returnLoc = rental.ReturnLocationId.HasValue
+                        ? locations.FirstOrDefault(l => l.Id == rental.ReturnLocationId.Value)
+                        : null;
 
                     Console.WriteLine($"ID: {rental.Id}, Клиент: {customer?.Surname} {customer?.Name}, " +
                                       $"Машина: {car?.Brand} {car?.Model}, Статус: {rental.Status}, " +
@@ -552,7 +532,33 @@ namespace lab_1
 
 
 
+        static List<Car> FetchCars(Client client)
+        {
+            var response = client.SendRequest(client.CreateGetAllCarsRequest());
+            if (!response.Success) return new List<Car>();
+            return JsonSerializer.Deserialize<List<Car>>(response.Result);
+        }
 
+        static List<Customer> FetchCustomers(Client client)
+        {
+            var response = client.SendRequest(client.CreateGetAllCustomersRequest());
+            if (!response.Success) return new List<Customer>();
+            return JsonSerializer.Deserialize<List<Customer>>(response.Result);
+        }
+
+        static List<Rental> FetchRentals(Client client)
+        {
+            var response = client.SendRequest(client.CreateGetAllRentalsRequest());
+            if (!response.Success) return new List<Rental>();
+            return JsonSerializer.Deserialize<List<Rental>>(response.Result);
+        }
+
+        static List<Location> FetchLocations(Client client)
+        {
+            var response = client.SendRequest(client.CreateGetAllLocationsRequest());
+            if (!response.Success) return new List<Location>();
+            return JsonSerializer.Deserialize<List<Location>>(response.Result);
+        }
 
 
         static void TestUnknownOperation(Client client)
