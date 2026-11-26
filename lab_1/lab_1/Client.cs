@@ -7,6 +7,62 @@ namespace lab_1
 {
     public class Client
     {
+
+        private TimeSpan _clockOffset = TimeSpan.Zero;      
+        private TimeSpan _serverTimeOffset = TimeSpan.Zero;  
+
+        public TimeSpan ClockOffset => _clockOffset;
+        public TimeSpan ServerTimeOffset => _serverTimeOffset;
+
+        private DateTime _lastKnownServerTime = DateTime.MinValue;
+        private DateTime _lastKnownServerTimeLocal = DateTime.MinValue;
+
+
+        public DateTime GetServerTimeEstimate()
+        {
+            if (_lastKnownServerTime == DateTime.MinValue) return DateTime.UtcNow;
+            var elapsed = DateTime.UtcNow - _lastKnownServerTimeLocal;
+            return _lastKnownServerTime + elapsed;
+        }
+
+        public void SetLastKnownServerTime(DateTime serverTime)
+        {
+            _lastKnownServerTime = serverTime;
+            _lastKnownServerTimeLocal = DateTime.UtcNow;
+        }
+
+        public void SetClockOffset(TimeSpan offset)
+        {
+            _clockOffset = offset;
+            Console.WriteLine($"[Клиент] Смещение часов: {offset.TotalSeconds:+0;-0;0} сек");
+        }
+
+        public void SetServerTimeOffset(TimeSpan offset)
+        {
+            _serverTimeOffset = offset;
+        }
+
+        public DateTime GetLocalTime() => DateTime.UtcNow + _clockOffset;
+        public DateTime GetCorrectedTime() => GetLocalTime() + _serverTimeOffset;
+
+        public Request CreateTimeRequest()
+        {
+            return new Request
+            {
+                Operation = "TimeRequest",
+                Data = "{}",
+                RequestId = ++_requestCounter
+            };
+        }
+
+        public void ApplySyncOffset(TimeSpan offset)
+        {
+            _clockOffset += offset;
+            _serverTimeOffset = TimeSpan.Zero;
+            Console.WriteLine($"[Клиент] Синхронизация применена.");
+        }
+
+
         private TcpClient _tcpClient;
         private NetworkStream _stream;
         private int _requestCounter = 0;
@@ -42,8 +98,24 @@ namespace lab_1
                 string requestJson = JsonSerializer.Serialize(request);
                 byte[] data = Encoding.UTF8.GetBytes(requestJson);
 
-                
+                byte[] requestLengthBytes = BitConverter.GetBytes(data.Length);
+                _stream.Write(requestLengthBytes, 0, 4);
                 _stream.Write(data, 0, data.Length);
+                Console.WriteLine($"[Клиент] Отправлен запрос: {request.Operation}");
+
+                byte[] responseLengthBuffer = new byte[4];
+                ReadExact(_stream, responseLengthBuffer, 4);
+                int responseLength = BitConverter.ToInt32(responseLengthBuffer, 0);
+
+                byte[] responseBuffer = new byte[responseLength];
+                ReadExact(_stream, responseBuffer, responseLength);
+                string responseJson = Encoding.UTF8.GetString(responseBuffer, 0, responseLength);
+
+                Console.WriteLine($"[Клиент] Получен ответ ({responseLength} байт)");
+
+                return JsonSerializer.Deserialize<Response>(responseJson);
+
+                /*_stream.Write(data, 0, data.Length);
                 Console.WriteLine($"[Клиент] Отправлен запрос: {request.Operation}");
 
                 byte[] buffer = new byte[4096];
@@ -52,7 +124,7 @@ namespace lab_1
 
                 Console.WriteLine($"[Клиент] Получен ответ");
 
-                return JsonSerializer.Deserialize<Response>(responseJson);
+                return JsonSerializer.Deserialize<Response>(responseJson);*/
             }
             catch (Exception ex)
             {
@@ -61,6 +133,18 @@ namespace lab_1
                     Success = false,
                     ErrorMessage = $"Ошибка сетевого взаимодействия: {ex.Message}"
                 };
+            }
+        }
+
+        private static void ReadExact(NetworkStream stream, byte[] buffer, int count)
+        {
+            int totalRead = 0;
+            while (totalRead < count)
+            {
+                int bytesRead = stream.Read(buffer, totalRead, count - totalRead);
+                if (bytesRead == 0)
+                    throw new Exception("Соединение закрыто сервером");
+                totalRead += bytesRead;
             }
         }
 

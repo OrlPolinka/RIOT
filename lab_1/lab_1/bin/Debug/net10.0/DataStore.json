@@ -2,33 +2,33 @@
   "Customers": [
     {
       "Id": 1,
-      "Surname": "\u0421\u0442\u0430\u043B\u044C\u043C\u0430\u0447\u0435\u043D\u043E\u043A",
-      "Name": "\u041F\u043E\u043B\u0438\u043D\u0430",
-      "Patronymic": "\u041C\u0438\u0445\u0430\u0439\u043B\u043E\u0432\u043D\u0430",
+      "Surname": "Стальмаченок",
+      "Name": "Полина",
+      "Patronymic": "Михайловна",
       "Email": "poli@gmail.ru",
-      "PhoneNumber": "\u002B375291234567",
+      "PhoneNumber": "+375291234567",
       "DriverLicenseNumber": "AB1234567",
       "DateOfBirth": "2003-05-15T00:00:00",
       "RegistrationDate": "2025-08-02T10:30:00"
     },
     {
       "Id": 2,
-      "Surname": "\u0428\u043A\u0438\u043D\u0434\u0435\u0440",
-      "Name": "\u0412\u0435\u0440\u043E\u043D\u0438\u043A\u0430",
-      "Patronymic": "\u0412\u0430\u043B\u0435\u0440\u044C\u0435\u0432\u043D\u0430",
+      "Surname": "Шкиндер",
+      "Name": "Вероника",
+      "Patronymic": "Валерьевна",
       "Email": "kind@gmail.ru",
-      "PhoneNumber": "\u002B375297654321",
+      "PhoneNumber": "+375297654321",
       "DriverLicenseNumber": "CD7654321",
       "DateOfBirth": "1999-11-03T00:00:00",
       "RegistrationDate": "2022-03-12T15:20:00"
     },
     {
       "Id": 3,
-      "Surname": "\u0410\u0441\u0442\u0443\u043A\u0435\u0432\u0438\u0447",
-      "Name": "\u0414\u0430\u043D\u0438\u0438\u043B",
-      "Patronymic": "\u0410\u043B\u0435\u043A\u0441\u0435\u0435\u0432\u0438\u0447",
+      "Surname": "Астукевич",
+      "Name": "Даниил",
+      "Patronymic": "Алексеевич",
       "Email": "dany@mail.ru",
-      "PhoneNumber": "\u002B375295556677",
+      "PhoneNumber": "+375295556677",
       "DriverLicenseNumber": "EF9876543",
       "DateOfBirth": "2006-04-26T00:00:00",
       "RegistrationDate": "2026-03-10T09:15:00"
@@ -40,72 +40,72 @@
       "Brand": "Toyota",
       "Model": "Camry",
       "Year": 2020,
-      "LicensePlate": "\u0410123\u0412\u0421",
+      "LicensePlate": "А123ВС",
       "PricePerDay": 45.00,
-      "IsAvailable": false,
-      "Color": "\u0421\u0435\u0440\u0435\u0431\u0440\u0438\u0441\u0442\u044B\u0439"
+      "IsAvailable": true,
+      "Color": "Серебристый"
     },
     {
       "Id": 2,
       "Brand": "BMW",
       "Model": "X5",
       "Year": 2021,
-      "LicensePlate": "\u0412456\u0425\u041A",
+      "LicensePlate": "В456ХК",
       "PricePerDay": 75.00,
-      "IsAvailable": false,
-      "Color": "\u0427\u0435\u0440\u043D\u044B\u0439"
+      "IsAvailable": true,
+      "Color": "Черный"
     },
     {
       "Id": 3,
       "Brand": "Kia",
       "Model": "Rio",
       "Year": 2022,
-      "LicensePlate": "\u0421789\u041E\u0420",
+      "LicensePlate": "С789ОР",
       "PricePerDay": 30.00,
       "IsAvailable": false,
-      "Color": "\u0411\u0435\u043B\u044B\u0439"
+      "Color": "Белый"
     },
     {
       "Id": 4,
       "Brand": "Hyundai",
       "Model": "Solaris",
       "Year": 2021,
-      "LicensePlate": "\u0415321\u041A\u041C",
+      "LicensePlate": "Е321КМ",
       "PricePerDay": 35.00,
-      "IsAvailable": false,
-      "Color": "\u041A\u0440\u0430\u0441\u043D\u044B\u0439"
+      "IsAvailable": true,
+      "Color": "Красный"
     },
     {
       "Id": 5,
       "Brand": "Mercedes",
       "Model": "E-Class",
       "Year": 2022,
-      "LicensePlate": "\u041A654\u041D\u0415",
+      "LicensePlate": "К654НЕ",
       "PricePerDay": 90.00,
-      "IsAvailable": false,
-      "Color": "\u0421\u0438\u043D\u0438\u0439"
+      "IsAvailable": true,
+      "Color": "Синий"
     }
   ],
   "Locations": [
     {
       "Id": 1,
-      "City": "\u041C\u0438\u043D\u0441\u043A",
-      "Address": "\u0443\u043B. \u041D\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438, 15",
-      "Phone": "\u002B375291111111",
+      "City": "Минск",
+      "Address": "ул. Независимости, 15",
+      "Phone": "+375291111111",
       "WorkingHours": "09:00-21:00"
     },
     {
       "Id": 2,
-      "City": "\u041C\u0438\u043D\u0441\u043A",
-      "Address": "\u0443\u043B. \u041F\u0440\u0438\u0442\u044B\u0446\u043A\u043E\u0433\u043E, 45",
-      "Phone": "\u002B375292222222",
+      "City": "Минск",
+      "Address": "ул. Притыцкого, 45",
+      "Phone": "+375292222222",
       "WorkingHours": "08:00-20:00"
     },
     {
       "Id": 3,
-      "City": "\u0413\u043E\u043C\u0435\u043B\u044C",
-      "Address": "\u0443\u043B. \u0421\u043E\u0432\u0435\u0442\u0441\u043A\u0430\u044F, 10",
-      "Phone": "\u002B375293333333",
+      "City": "Гомель",
+      "Address": "ул. Советская, 10",
+      "Phone": "+375293333333",
       "WorkingHours": "09:00-19:00"
     }
   ],
@@ -118,172 +118,8 @@
       "ReturnLocationId": 1,
       "StartDate": "2026-09-04T10:00:00",
       "EndDate": "2026-09-05T10:00:00",
+      "ActualReturnDate": null,
       "TotalCost": 150.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 2,
-      "CustomerId": 1,
-      "CarId": 2,
-      "PickupLocationId": 2,
-      "ReturnLocationId": 3,
-      "StartDate": "2026-09-06T14:55:56.7296061+03:00",
-      "EndDate": "2026-09-13T14:55:56.7314119+03:00",
-      "ActualReturnDate": "2026-09-06T14:56:29.0685789+03:00",
-      "TotalCost": 525.00,
-      "Status": "Completed"
-    },
-    {
-      "Id": 3,
-      "CustomerId": 1,
-      "CarId": 4,
-      "PickupLocationId": 1,
-      "ReturnLocationId": 2,
-      "StartDate": "2026-09-06T15:48:50.4522748+03:00",
-      "EndDate": "2026-09-10T15:48:50.4523669+03:00",
-      "ActualReturnDate": "2026-09-10T09:44:31.7975287+03:00",
-      "TotalCost": 140.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 4,
-      "CustomerId": 3,
-      "CarId": 2,
-      "PickupLocationId": 3,
-      "ReturnLocationId": 3,
-      "StartDate": "2026-09-07T08:08:42.3303735+03:00",
-      "EndDate": "2026-09-11T08:08:42.3306881+03:00",
-      "ActualReturnDate": "2026-09-10T09:43:57.4866446+03:00",
-      "TotalCost": 300.00,
-      "Status": "Completed"
-    },
-    {
-      "Id": 5,
-      "CustomerId": 1,
-      "CarId": 1,
-      "PickupLocationId": 1,
-      "ReturnLocationId": 2,
-      "StartDate": "2026-09-07T08:24:45.0902468+03:00",
-      "EndDate": "2026-09-12T08:24:45.0903401+03:00",
-      "TotalCost": 225.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 6,
-      "CustomerId": 3,
-      "CarId": 3,
-      "PickupLocationId": 3,
-      "ReturnLocationId": 2,
-      "StartDate": "2026-09-08T08:32:44.935817+03:00",
-      "EndDate": "2026-09-13T08:32:44.9359859+03:00",
-      "TotalCost": 150.00,
-      "Status": "Active"
-    },
-    {
-      "Id": 7,
-      "CustomerId": 1,
-      "CarId": 5,
-      "PickupLocationId": 3,
-      "StartDate": "2026-09-08T08:36:23.598721+03:00",
-      "EndDate": "2026-09-17T08:36:23.5988706+03:00",
-      "ActualReturnDate": "2026-09-08T08:39:39.9675782+03:00",
-      "TotalCost": 810.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 8,
-      "CustomerId": 2,
-      "CarId": 1,
-      "PickupLocationId": 3,
-      "ReturnLocationId": 3,
-      "StartDate": "2026-09-08T08:38:26.8495696+03:00",
-      "EndDate": "2026-09-14T08:38:26.8497002+03:00",
-      "ActualReturnDate": "2026-09-08T08:39:09.4682794+03:00",
-      "TotalCost": 270.00,
-      "Status": "Completed"
-    },
-    {
-      "Id": 9,
-      "CustomerId": 1,
-      "CarId": 1,
-      "PickupLocationId": 2,
-      "StartDate": "2026-09-10T09:44:57.9043945+03:00",
-      "EndDate": "2026-09-14T09:44:57.9043978+03:00",
-      "TotalCost": 180.00,
-      "Status": "Active"
-    },
-    {
-      "Id": 10,
-      "CustomerId": 1,
-      "CarId": 4,
-      "PickupLocationId": 2,
-      "ReturnLocationId": 1,
-      "StartDate": "2026-09-10T11:52:08.5416541+03:00",
-      "EndDate": "2026-09-14T11:52:08.5417541+03:00",
-      "ActualReturnDate": "2026-09-10T11:52:57.5943586+03:00",
-      "TotalCost": 140.00,
-      "Status": "Completed"
-    },
-    {
-      "Id": 11,
-      "CustomerId": 3,
-      "CarId": 4,
-      "PickupLocationId": 2,
-      "StartDate": "2026-09-10T11:53:17.8882561+03:00",
-      "EndDate": "2026-09-15T11:53:17.8882593+03:00",
-      "ActualReturnDate": "2026-09-16T22:14:44.9812517+03:00",
-      "TotalCost": 175.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 12,
-      "CustomerId": 2,
-      "CarId": 2,
-      "PickupLocationId": 3,
-      "StartDate": "2026-09-10T12:19:07.4809015+03:00",
-      "EndDate": "2026-09-14T12:19:07.4809039+03:00",
-      "ActualReturnDate": "2026-09-16T22:12:45.2044524+03:00",
-      "TotalCost": 300.00,
-      "Status": "Cancelled"
-    },
-    {
-      "Id": 13,
-      "CustomerId": 2,
-      "CarId": 5,
-      "PickupLocationId": 2,
-      "StartDate": "2026-09-10T12:23:44.5292482+03:00",
-      "EndDate": "2026-09-11T12:23:44.5292517+03:00",
-      "TotalCost": 90.00,
-      "Status": "Active"
-    },
-    {
-      "Id": 14,
-      "CustomerId": 1,
-      "CarId": 2,
-      "PickupLocationId": 2,
-      "StartDate": "2026-09-16T22:31:12.3468188+03:00",
-      "EndDate": "2026-09-19T22:31:12.3468205+03:00",
-      "TotalCost": 225.00,
-      "Status": "Active"
-    },
-    {
-      "Id": 15,
-      "CustomerId": 2,
-      "CarId": 4,
-      "PickupLocationId": 1,
-      "StartDate": "2026-09-16T22:49:07.2242866+03:00",
-      "EndDate": "2026-09-18T22:49:07.2242912+03:00",
-      "TotalCost": 70.00,
-      "Status": "Active"
-    },
-    {
-      "Id": 16,
-      "CustomerId": 1,
-      "CarId": 4,
-      "PickupLocationId": 2,
-      "StartDate": "2026-09-16T22:49:08.6128484+03:00",
-      "EndDate": "2026-09-21T22:49:08.6128512+03:00",
-      "TotalCost": 175.00,
       "Status": "Active"
     }
   ],
@@ -293,126 +129,6 @@
       "RentalId": 1,
       "TotalSummer": 150.00,
       "PaymentDate": "2026-09-04T10:15:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 2,
-      "RentalId": 2,
-      "TotalSummer": 525.00,
-      "PaymentDate": "2026-09-06T14:55:56.7316107+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 3,
-      "RentalId": 3,
-      "TotalSummer": 140.00,
-      "PaymentDate": "2026-09-06T15:48:50.4528005+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 4,
-      "RentalId": 4,
-      "TotalSummer": 300.00,
-      "PaymentDate": "2026-09-07T08:08:42.3310201+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 5,
-      "RentalId": 5,
-      "TotalSummer": 225.00,
-      "PaymentDate": "2026-09-07T08:24:45.091121+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 6,
-      "RentalId": 6,
-      "TotalSummer": 150.00,
-      "PaymentDate": "2026-09-08T08:32:44.9365307+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 7,
-      "RentalId": 7,
-      "TotalSummer": 810.00,
-      "PaymentDate": "2026-09-08T08:36:23.5997378+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 8,
-      "RentalId": 8,
-      "TotalSummer": 270.00,
-      "PaymentDate": "2026-09-08T08:38:26.8504411+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 9,
-      "RentalId": 9,
-      "TotalSummer": 180.00,
-      "PaymentDate": "2026-09-10T09:44:57.9052106+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 10,
-      "RentalId": 10,
-      "TotalSummer": 140.00,
-      "PaymentDate": "2026-09-10T11:52:08.5427369+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 11,
-      "RentalId": 11,
-      "TotalSummer": 175.00,
-      "PaymentDate": "2026-09-10T11:53:17.8882702+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 12,
-      "RentalId": 12,
-      "TotalSummer": 300.00,
-      "PaymentDate": "2026-09-10T12:19:07.481638+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 13,
-      "RentalId": 13,
-      "TotalSummer": 90.00,
-      "PaymentDate": "2026-09-10T12:23:44.5299708+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 14,
-      "RentalId": 14,
-      "TotalSummer": 225.00,
-      "PaymentDate": "2026-09-16T22:31:12.3469972+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 15,
-      "RentalId": 15,
-      "TotalSummer": 70.00,
-      "PaymentDate": "2026-09-16T22:49:07.2248702+03:00",
-      "PaymentMethod": "Card",
-      "Status": "Paid"
-    },
-    {
-      "Id": 16,
-      "RentalId": 16,
-      "TotalSummer": 175.00,
-      "PaymentDate": "2026-09-16T22:49:08.6128729+03:00",
       "PaymentMethod": "Card",
       "Status": "Paid"
     }

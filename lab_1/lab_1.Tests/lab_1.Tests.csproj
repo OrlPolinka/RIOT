@@ -18,8 +18,18 @@
     <ProjectReference Include="..\lab_1\lab_1.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="xunit.runner.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\lab_1\lab_1.csproj" />
+	</ItemGroup>
 
 </Project>

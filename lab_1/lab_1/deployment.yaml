@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-rental-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: car-rental-server
+  template:
+    metadata:
+      labels:
+        app: car-rental-server
+    spec:
+      containers:
+        - name: server
+          image: car-rental-server:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: db-env
+          env:
+            - name: SERVER_PORT
+              value: "3000"
+            - name: APP_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: server-config
+                  key: APP_MODE

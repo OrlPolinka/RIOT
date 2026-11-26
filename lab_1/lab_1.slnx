@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="lab_1.Tests/lab_1.Tests.csproj" Id="43411a4c-d4d4-44db-98ed-b1fdd0ad59bc" />
   <Project Path="lab_1/lab_1.csproj" />
+  <Project Path="lab_1_Semaphore.Tests/lab_1_Semaphore.Tests.csproj" Id="eb07da82-a3bd-4eb1-856e-67f5224672da" />
+  <Project Path="lab_1_Semaphore/lab_1_Semaphore.csproj" />
 </Solution>

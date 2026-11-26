@@ -10,6 +10,22 @@ namespace lab_1
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            if (args.Length > 0)
+            {
+                if (args[0] == "--server")
+                {
+                    Console.WriteLine($"[Program] Запуск сервера в non-interactive режиме, порт {AppConfig.ServerPort}");
+                    var server = new Server(AppConfig.ServerPort);
+                    server.Start();
+                    return;
+                }
+                if (args[0] == "--client")
+                {
+                    RunClientNonInteractive();
+                    return;
+                }
+            }
+
             Console.WriteLine("Выберите режим запуска:");
             Console.WriteLine("1 - Сервер");
             Console.WriteLine("2 - Клиент");
@@ -32,11 +48,30 @@ namespace lab_1
             }
         }
 
+        static void RunClientNonInteractive()
+        {
+            var client = new Client();
+            if (!client.Connect(AppConfig.ClientHost, AppConfig.ServerPort))
+            {
+                Console.WriteLine("[Client] Не удалось подключиться");
+                Environment.Exit(1);
+            }
+            var resp = client.SendRequest(client.CreateGetAllCarsRequest());
+            Console.WriteLine(resp.Success ? resp.Result : resp.ErrorMessage);
+            client.Disconnect();
+        }
+
+
         static void RunServer()
         {
-            var server = new Server(3000);
+            Console.Clear();
+            Console.Write("Введите порт (по умолчанию 3000): ");
 
-            // обработка Ctrl + C
+            string portStr = Console.ReadLine();
+            int port = string.IsNullOrEmpty(portStr) ? 3000 : int.Parse(portStr);
+
+            var server = new Server(port);
+
             Console.CancelKeyPress += (sender, e) =>
             {
                 e.Cancel = true;
@@ -67,6 +102,10 @@ namespace lab_1
                 return;
             }
 
+            Console.Write("Введите смещение часов в секундах (например, 7 или -5): ");
+            if (int.TryParse(Console.ReadLine(), out int offsetSec))
+                client.SetClockOffset(TimeSpan.FromSeconds(offsetSec));
+
             //var dataStore = new HelpData("DataStore.json");
 
             bool isRunning = true;
@@ -82,6 +121,14 @@ namespace lab_1
                 Console.WriteLine("6. Показать все аренды");
                 Console.WriteLine("7. Показать всех клиентов");
                 Console.WriteLine("8. Отправить тестовый запрос (неизвестная операция)");
+                Console.WriteLine("9. Синхронизация времени");
+                Console.WriteLine("10. Проверить состояние экземпляров");
+                //Console.WriteLine("11. Смоделировать отказ Primary");
+                //Console.WriteLine("12. Восстановить Primary");
+                Console.WriteLine("11. Синхронизировать Primary и Replica");
+                Console.WriteLine("12. Провести выборы лидера");
+                Console.WriteLine("13. Предложить изменение статуса аренды (Консенсус)");
+                Console.WriteLine("14. Проверить Heartbeat лидера");
                 Console.WriteLine("0. Выход");
                 Console.Write("Выберите операцию: ");
 
@@ -113,6 +160,24 @@ namespace lab_1
                     case "8":
                         TestUnknownOperation(client);
                         break;
+                    case "9":
+                        SyncTime(client);
+                        break;
+                    case "10": 
+                        CheckInstances(client); 
+                        break;
+                    case "11": 
+                        Synchronize(client);
+                        break;
+                    case "12":
+                        Election(client);
+                        break;
+                    case "13":
+                        ProposeValue(client);
+                        break;
+                    case "14":
+                        CheckHeartbeat(client);
+                        break;
                     case "0":
                         isRunning = false;
                         break;
@@ -125,6 +190,80 @@ namespace lab_1
 
             client.Disconnect();
         }
+
+
+
+        static void Election(Client client)
+        {
+            Console.Clear();
+            var request = new Request { Operation = "LeaderElection", Data = "{}", RequestId = 200 };
+            var response = client.SendRequest(request);
+            Console.WriteLine(response.Success ? "Выборы проведены. Смотрите лог сервера." : response.ErrorMessage);
+            Console.ReadKey();
+        }
+
+        static void ProposeValue(Client client)
+        {
+            Console.Clear();
+            Console.Write("Изменение статуса аренды");
+
+            var rentals = FetchRentals(client);
+            if (rentals.Count == 0)
+            {
+                Console.WriteLine("Аренд нет.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("\nСуществующие аренды:");
+            foreach (var r in rentals)
+                Console.WriteLine($"  ID: {r.Id}, Статус: {r.Status}, Стоимость: {r.TotalCost}");
+
+            int rentalId = SafeReadInt("\nВведите ID аренды: ");
+            Console.Write("Введите новый статус (Active/Cancelled/Completed): ");
+            string newStatus = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(newStatus))
+            {
+                Console.WriteLine("Статус не может быть пустым.");
+                Console.ReadKey();
+                return;
+            }
+
+            var data = JsonSerializer.Serialize(new
+            {
+                RentalId = rentalId,
+                Status = newStatus
+            });
+
+            Console.WriteLine($"\nОтправляем: RentalId={rentalId}, Status={newStatus}");
+
+            var request = new Request { Operation = "ProposeStatus", Data = data, RequestId = 201 };
+            var response = client.SendRequest(request);
+
+            if (response.Success)
+            {
+                Console.WriteLine($"\nУспех! Ответ сервера: {response.Result}");
+            }
+            else
+            {
+                Console.WriteLine($"\nОшибка: {response.ErrorMessage}");
+            }
+
+            Console.ReadKey();
+        }
+
+        static void CheckHeartbeat(Client client)
+        {
+            Console.Clear();
+            var request = new Request { Operation = "Heartbeat", Data = "{}", RequestId = 202 };
+            var response = client.SendRequest(request);
+            Console.WriteLine(response.Success ? "Лидер ЖИВ!" : "Лидер МЕРТВ! Требуется перевыборы.");
+            Console.ReadKey();
+        }
+
+
+
 
         static void ShowAllCars(Client client)
         {
@@ -580,5 +719,234 @@ namespace lab_1
             Console.WriteLine("\nНажмите любую клавишу для продолжения...");
             Console.ReadKey();
         }
+
+
+        static void SyncTime(Client client)
+        {
+            Console.Clear();
+            Console.WriteLine("СИНХРОНИЗАЦИЯ ВРЕМЕНИ С СЕРВЕРОМ");
+
+            var localBefore = client.GetLocalTime();
+
+            var requestTime = DateTime.UtcNow;
+            var response = client.SendRequest(client.CreateTimeRequest());
+            var responseTime = DateTime.UtcNow;
+
+            if (!response.Success)
+            {
+                Console.WriteLine($"Ошибка: {response.ErrorMessage}");
+                Console.ReadKey();
+                return;
+            }
+
+            var doc = JsonDocument.Parse(response.Result);
+            var serverTimeBefore = doc.RootElement.GetProperty("ServerTime").GetDateTime();
+
+            Console.WriteLine("ДО СИНХРОНИЗАЦИИ");
+            Console.WriteLine($"  Клиент:  {localBefore:HH:mm:ss.fff}");
+            Console.WriteLine($"  Сервер:  {serverTimeBefore:HH:mm:ss.fff}");
+            Console.WriteLine($"  Разница: {(serverTimeBefore - localBefore).TotalSeconds:+0.000;-0.000;0.000} сек");
+            Console.WriteLine();
+
+            var rtt = responseTime - requestTime;
+            var networkDelay = rtt / 2;
+
+            Console.WriteLine("ИЗМЕРЕНИЯ");
+            Console.WriteLine($"  RTT:     {rtt.TotalMilliseconds:F0} мс");
+            Console.WriteLine($"  RTT/2:   {networkDelay.TotalMilliseconds:F0} мс");
+            Console.WriteLine();
+
+            var clientLocalAtResponse = client.GetLocalTime();
+            var offset = (serverTimeBefore + networkDelay) - clientLocalAtResponse;
+
+            Console.WriteLine("ПОПРАВКА");
+            Console.WriteLine($"  Offset:  {offset.TotalSeconds:+0.000;-0.000;0.000} сек");
+            Console.WriteLine();
+
+            client.ApplySyncOffset(offset);
+            client.SetLastKnownServerTime(serverTimeBefore);
+
+            var localAfter = client.GetLocalTime();
+            var serverTimeAfter = client.GetServerTimeEstimate();
+
+            Console.WriteLine("ПОСЛЕ СИНХРОНИЗАЦИИ");
+            Console.WriteLine($"  Клиент:  {localAfter:HH:mm:ss.fff}");
+            Console.WriteLine($"  Сервер:  {serverTimeAfter:HH:mm:ss.fff}  (оценка)");
+            Console.WriteLine($"  Разница: {(serverTimeAfter - localAfter).TotalSeconds:+0.000;-0.000;0.000} сек");
+            Console.WriteLine();
+
+            Console.ReadKey();
+        }
+
+
+        // ============================================================
+        // ПРОВЕРИТЬ СОСТОЯНИЕ ЭКЗЕМПЛЯРОВ
+        // ============================================================
+        static void CheckInstances(Client client)
+        {
+            Console.Clear();
+            Console.WriteLine("===== СОСТОЯНИЕ ЭКЗЕМПЛЯРОВ БД =====");
+
+            var request = new Request
+            {
+                Operation = "CheckInstances",
+                Data = "{}",
+                RequestId = 100
+            };
+
+            var response = client.SendRequest(request);
+
+            if (response.Success)
+            {
+                var doc = JsonDocument.Parse(response.Result);
+                var primary = doc.RootElement.GetProperty("Primary").GetString();
+                var replica = doc.RootElement.GetProperty("Replica").GetString();
+                var current = doc.RootElement.GetProperty("Current").GetString();
+
+                Console.WriteLine($"  Primary:  {primary}");
+                Console.WriteLine($"  Replica:  {replica}");
+                Console.WriteLine($"  Активный: {current}");
+            }
+            else
+            {
+                Console.WriteLine($"Ошибка: {response.ErrorMessage}");
+            }
+
+            Console.WriteLine("\nНажмите любую клавишу для продолжения...");
+            Console.ReadKey();
+        }
+
+        // ============================================================
+        // СМОДЕЛИРОВАТЬ ОТКАЗ PRIMARY
+        // ============================================================
+        static void SimulatePrimaryFailure(Client client)
+        {
+            Console.Clear();
+            Console.WriteLine("===== МОДЕЛИРОВАНИЕ ОТКАЗА PRIMARY =====");
+
+            Console.WriteLine("\nВы уверены, что хотите смоделировать отказ Primary?");
+            Console.WriteLine("После этого все запросы пойдут через Replica.");
+            Console.Write("(y/n): ");
+            string confirm = Console.ReadLine()?.ToLower();
+
+            if (confirm != "y")
+            {
+                Console.WriteLine("Отменено.");
+                Console.ReadKey();
+                return;
+            }
+
+            var request = new Request
+            {
+                Operation = "SimulatePrimaryFailure",
+                Data = "{}",
+                RequestId = 101
+            };
+
+            var response = client.SendRequest(request);
+
+            if (response.Success)
+            {
+                var doc = JsonDocument.Parse(response.Result);
+                var primary = doc.RootElement.GetProperty("Primary").GetString();
+                var replica = doc.RootElement.GetProperty("Replica").GetString();
+
+                Console.WriteLine($"\nОтказ смоделирован:");
+                Console.WriteLine($"  Primary:  {primary}");
+                Console.WriteLine($"  Replica:  {replica}");
+                Console.WriteLine("\nТеперь все запросы будут идти через Replica (failover).");
+            }
+            else
+            {
+                Console.WriteLine($"Ошибка: {response.ErrorMessage}");
+            }
+
+            Console.WriteLine("\nНажмите любую клавишу для продолжения...");
+            Console.ReadKey();
+        }
+
+        // ============================================================
+        // ВОССТАНОВИТЬ PRIMARY
+        // ============================================================
+        static void RestorePrimary(Client client)
+        {
+            Console.Clear();
+            Console.WriteLine("===== ВОССТАНОВЛЕНИЕ PRIMARY =====");
+
+            var request = new Request
+            {
+                Operation = "RestorePrimary",
+                Data = "{}",
+                RequestId = 102
+            };
+
+            var response = client.SendRequest(request);
+
+            if (response.Success)
+            {
+                var doc = JsonDocument.Parse(response.Result);
+                var primary = doc.RootElement.GetProperty("Primary").GetString();
+                var replica = doc.RootElement.GetProperty("Replica").GetString();
+
+                Console.WriteLine($"\nPrimary восстановлен:");
+                Console.WriteLine($"  Primary:  {primary}");
+                Console.WriteLine($"  Replica:  {replica}");
+                Console.WriteLine("\nВнимание: данные могли разойтись — рекомендуется синхронизация (пункт 13).");
+            }
+            else
+            {
+                Console.WriteLine($"Ошибка: {response.ErrorMessage}");
+            }
+
+            Console.WriteLine("\nНажмите любую клавишу для продолжения...");
+            Console.ReadKey();
+        }
+
+        // ============================================================
+        // СИНХРОНИЗИРОВАТЬ PRIMARY И REPLICA
+        // ============================================================
+        static void Synchronize(Client client)
+        {
+            Console.Clear();
+            Console.WriteLine("===== СИНХРОНИЗАЦИЯ PRIMARY И REPLICA =====");
+
+            Console.WriteLine("\nЭто скопирует ВСЕ данные из Primary в Replica.");
+            Console.WriteLine("Внимание: текущие данные Replica будут перезаписаны.");
+            Console.Write("Продолжить? (y/n): ");
+            string confirm = Console.ReadLine()?.ToLower();
+
+            if (confirm != "y")
+            {
+                Console.WriteLine("Отменено.");
+                Console.ReadKey();
+                return;
+            }
+
+            var request = new Request
+            {
+                Operation = "Synchronize",
+                Data = "{}",
+                RequestId = 103
+            };
+
+            var response = client.SendRequest(request);
+
+            if (response.Success)
+            {
+                var doc = JsonDocument.Parse(response.Result);
+                var status = doc.RootElement.GetProperty("Status").GetString();
+
+                Console.WriteLine($"\nСинхронизация выполнена: {status}");
+                Console.WriteLine("Primary = Replica");
+            }
+            else
+            {
+                Console.WriteLine($"Ошибка: {response.ErrorMessage}");
+            }
+
+            Console.WriteLine("\nНажмите любую клавишу для продолжения...");
+            Console.ReadKey();
+        }
+
     }
 }

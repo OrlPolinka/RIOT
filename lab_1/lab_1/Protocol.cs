@@ -77,4 +77,14 @@ namespace lab_1
         [JsonPropertyName("ReturnLocationId")]
         public int ReturnLocationId { get; set; }
     }
+
+
+    public class ProposeStatusRequest
+    {
+        [JsonPropertyName("RentalId")]
+        public int RentalId { get; set; }
+
+        [JsonPropertyName("Status")]
+        public string Status { get; set; }
+    }
 }

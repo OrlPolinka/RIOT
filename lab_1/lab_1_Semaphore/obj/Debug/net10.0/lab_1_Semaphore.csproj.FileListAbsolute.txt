@@ -1,0 +1,17 @@
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\DataStore.json
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\lab_1_Semaphore.exe
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\lab_1_Semaphore.deps.json
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\lab_1_Semaphore.runtimeconfig.json
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\lab_1_Semaphore.dll
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\bin\Debug\net10.0\lab_1_Semaphore.pdb
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.AssemblyInfoInputs.cache
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.AssemblyInfo.cs
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.csproj.CoreCompileInputs.cache
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.sourcelink.json
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.dll
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\refint\lab_1_Semaphore.dll
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.pdb
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Semaphore.genruntimeconfig.cache
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\ref\lab_1_Semaphore.dll
+C:\Users\User\univer\riot\labs\lab_1\lab_1_Semaphore\obj\Debug\net10.0\lab_1_Se.7C478BF9.Up2Date

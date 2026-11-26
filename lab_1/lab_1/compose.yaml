@@ -1,0 +1,70 @@
+services:
+  db:
+    image: postgres:16
+    container_name: car-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: car_rental
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - car-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d car_rental"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  db-replica:
+    image: postgres:16
+    container_name: car-db-replica
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: car_rental_replica
+    volumes:
+      - pgdata_replica:/var/lib/postgresql/data
+      - ./schema_replica.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    ports:
+      - "5433:5432"
+    networks:
+      - car-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d car_rental_replica"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: car-server
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      db-replica:                
+        condition: service_healthy
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+      DB_PRIMARY_CONN: ${DB_PRIMARY_CONN}
+      DB_REPLICA_CONN: ${DB_REPLICA_CONN}
+    ports:
+      - "3000:3000"
+    networks:
+      - car-net
+
+volumes:
+  pgdata:
+  pgdata_replica:
+
+networks:
+  car-net:
+    driver: bridge
