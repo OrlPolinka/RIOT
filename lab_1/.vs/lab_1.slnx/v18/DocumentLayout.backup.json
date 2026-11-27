@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{43411A4C-D4D4-44DB-98ED-B1FDD0AD59BC}|lab_1.Tests\\lab_1.Tests.csproj|solutionrelative:lab_1.tests\\lab9kubernetestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\deployment.yaml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\deployment.yaml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61939916-71E1-DCBC-DFE4-59BE98DBB697}|lab_1\\lab_1.csproj|c:\\users\\user\\univer\\riot\\labs\\lab_1\\lab_1\\.dockerignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -169,12 +169,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 247,
+          "DockedHeight": 303,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\.env",
               "RelativeDocumentMoniker": "lab_1\\.env",
@@ -194,7 +194,7 @@
               "RelativeDocumentMoniker": "lab_1.Tests\\Lab9KubernetesTests.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\Lab9KubernetesTests.cs",
               "RelativeToolTip": "lab_1.Tests\\Lab9KubernetesTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAcwCcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-19T09:06:54.657Z",
               "EditorCaption": "",
@@ -202,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "configmap.yaml",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\configmap.yaml",
               "RelativeDocumentMoniker": "lab_1\\configmap.yaml",
@@ -216,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "service.yaml",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\service.yaml",
               "RelativeDocumentMoniker": "lab_1\\service.yaml",
@@ -230,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "deployment.yaml",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\deployment.yaml",
               "RelativeDocumentMoniker": "lab_1\\deployment.yaml",
@@ -244,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "LoadTesting.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\LoadTesting.cs",
               "RelativeDocumentMoniker": "lab_1.Tests\\LoadTesting.cs",
@@ -257,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Lab8DockerTests.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\Lab8DockerTests.cs",
               "RelativeDocumentMoniker": "lab_1.Tests\\Lab8DockerTests.cs",
@@ -270,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "compose.yaml",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\compose.yaml",
               "RelativeDocumentMoniker": "lab_1\\compose.yaml",
@@ -296,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Dockerfile",
               "RelativeDocumentMoniker": "lab_1\\Dockerfile",
@@ -322,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AppConfig.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\AppConfig.cs",
               "RelativeDocumentMoniker": "lab_1\\AppConfig.cs",
@@ -479,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ReplicationTests.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1.Tests\\ReplicationTests.cs",
               "RelativeDocumentMoniker": "lab_1.Tests\\ReplicationTests.cs",
@@ -570,15 +570,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "Service.cs",
               "DocumentMoniker": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeDocumentMoniker": "lab_1\\Service.cs",
               "ToolTip": "C:\\Users\\User\\univer\\riot\\labs\\lab_1\\lab_1\\Service.cs",
               "RelativeToolTip": "lab_1\\Service.cs",
-              "ViewState": "AgIAAI0CAAAAAAAAAAAhwJICAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAwwJICAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-22T07:27:05.471Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
@@ -701,7 +702,7 @@
           ]
         },
         {
-          "DockedHeight": 491,
+          "DockedHeight": 435,
           "SelectedChildIndex": -1,
           "Children": [
             {

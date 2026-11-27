@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "car-rental-server"
+        IMAGE_TAG = "${BUILD_NUMBER}"
+        K8S_DEPLOYMENT = "car-rental-server"
+        K8S_CONTAINER = "server"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Restore') {
+            steps {
+                bat 'dotnet restore'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'dotnet build --configuration Release --no-restore'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'dotnet test --configuration Release --no-build --filter "FullyQualifiedName~Lab8DockerTests|FullyQualifiedName~Lab9KubernetesTests|FullyQualifiedName~PubSubTests"'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                bat "kubectl set image deployment/${K8S_DEPLOYMENT} ${K8S_CONTAINER}=${IMAGE_NAME}:${IMAGE_TAG}"
+                bat "kubectl rollout status deployment/${K8S_DEPLOYMENT}"
+            }
+        }
+    }
+}
